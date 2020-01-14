@@ -6,14 +6,14 @@ def text_from_pdf(PDF_FILE_PATH):
 
     print("\n[ --- Loading text from pdf --- ] \n")
 
-    # Load your PDF
+    # --- load file pdf
     with open(PDF_FILE_PATH, "rb") as f:
         pdf = pdftotext.PDF(f)
 
-    # How many pages?
+    # --- count number of pages in pdf (not used)
     number_of_pages = len(pdf)
 
-    # Read all the text into one string    
+    # --- read text to one string
     return "\n\n".join(pdf)
 
 def get_words_from_original_dic(WORD_FILE_PATH):
@@ -24,8 +24,8 @@ def get_words_from_original_dic(WORD_FILE_PATH):
 def wordlist_file(WORD_FILE_PATH):
     words = open(WORD_FILE_PATH).read().split()
     value_of_word = {}
-    max_word_size = 0    
-    
+    max_word_size = 0
+
     # --- set a value to each word from higher (most common) to lower (less common)
     for position, word in enumerate(words):
         value_of_word[word] = len(words)/(position+1)
